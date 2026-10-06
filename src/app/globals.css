@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { -webkit-tap-highlight-color: transparent; }
+body { @apply bg-porcelana font-sans text-tinta antialiased; }
+
+@layer components {
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-porcelana px-3 py-1.5 text-xs font-medium text-noche-700 transition hover:bg-noche-100;
+  }
+  .card { @apply rounded-2xl bg-white shadow-suave; }
+  .container-app { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes sheetIn { from { transform: translateY(24px); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes toastIn { from { transform: translateY(-12px); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes heroIn { from { opacity: 0; transform: translateY(14px); letter-spacing: .02em } to { opacity: 1; transform: none } }
+.fade-in { animation: fadeIn .2s ease-out both; }
+.sheet-in { animation: sheetIn .28s cubic-bezier(.2,.8,.2,1) both; }
+.toast-in { animation: toastIn .25s ease-out both; }
+.hero-in { animation: heroIn 1s cubic-bezier(.2,.8,.2,1) both; }
+.hero-in-2 { animation: heroIn 1s .25s cubic-bezier(.2,.8,.2,1) both; }
+
+/* El ampersand de los nombres: el único gesto tipográfico protagonista */
+.amp { font-style: italic; font-weight: 300; color: #D9B26A; }
+
+:focus-visible { outline: 2px solid #4A5480; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
